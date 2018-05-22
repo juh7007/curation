@@ -5,7 +5,7 @@ div.chartcontainer {
 
 .legend {
 	padding: 5px;
-	font: 6px arial;
+	font: 8px arial;
 }
 /* general bar styles */
 
@@ -78,11 +78,11 @@ table.boxplotValues tr td
 }
 .axis text {
 	font-family: arial;
-	font-size: 6px;
+	font-size: 8px;
 }
 .axislabel {
 	font-family: arial;
-	font-size: 6px;
+	font-size: 8px;
 }
 table.data td:first-child {
 	text-align: right;
