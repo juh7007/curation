@@ -150,7 +150,7 @@
 						cumulativeObservationXLabel = 'Years';
 					}
 
-					cumulativeObservationLine.render(cumulativeData, "#reportDashboard #cumulativeobservation", 550, 300, {
+					cumulativeObservationLine.render(cumulativeData, "#reportDashboard #cumulativeobservation", 550, 220, {
 						yFormat: d3.format('0%'),
 						interpolate: "step-before",
 						xLabel: cumulativeObservationXLabel,
@@ -166,7 +166,7 @@
 
 				d3.selectAll("#reportDashboard #oppeoplebymonthsingle svg").remove();
 				var observationByMonthSingle = new jnj_chart.line();
-				observationByMonthSingle.render(byMonthSeries, "#reportDashboard #oppeoplebymonthsingle", 550, 300, {
+				observationByMonthSingle.render(byMonthSeries, "#reportDashboard #oppeoplebymonthsingle", 550, 220, {
 					xScale: d3.time.scale().domain(d3.extent(byMonthSeries[0].values, function (d) {
 						return d.xValue;
 					})),
@@ -395,7 +395,7 @@
 			curl(["jnj/chart", "common"], function (jnj_chart, common) {
 				d3.selectAll("#reportPerson #genderPie svg").remove();
 				genderDonut = new jnj_chart.donut();
-				genderDonut.render(common.mapConceptData(result.GENDER_DATA), "#reportPerson #genderPie", 260, 130, {
+				genderDonut.render(common.mapConceptData(result.GENDER_DATA), "#reportPerson #genderPie", 260, 100, {
 					colors: d3.scale.ordinal()
 						.domain([8507, 8551, 8532])
 						.range(["#1f77b4", " #CCC", "#ff7f0e"]),
@@ -410,7 +410,7 @@
 
 				d3.selectAll("#reportPerson #raceTypePie svg").remove();
 				raceDonut = new jnj_chart.donut();
-				raceDonut.render(common.mapConceptData(result.RACE_DATA), "#reportPerson #raceTypePie", 260, 130, {
+				raceDonut.render(common.mapConceptData(result.RACE_DATA), "#reportPerson #raceTypePie", 260, 100, {
 					margin: {
 						top: 5,
 						bottom: 10,
@@ -421,7 +421,7 @@
 
 				d3.selectAll("#reportPerson #ethnicityTypePie svg").remove();
 				raceDonut = new jnj_chart.donut();
-				raceDonut.render(common.mapConceptData(result.ETHNICITY_DATA), "#reportPerson #ethnicityTypePie", 260, 130, {
+				raceDonut.render(common.mapConceptData(result.ETHNICITY_DATA), "#reportPerson #ethnicityTypePie", 260, 100, {
 					margin: {
 						top: 5,
 						bottom: 10,
@@ -432,7 +432,7 @@
 
 				d3.selectAll("#reportPerson #birthyearhist svg").remove();
 				var yearHistogram = new jnj_chart.histogram();
-				yearHistogram.render(common.mapHistogram(result.BIRTH_YEAR_HISTOGRAM), "#reportPerson #birthyearhist", 460, 195, {
+				yearHistogram.render(common.mapHistogram(result.BIRTH_YEAR_HISTOGRAM), "#reportPerson #birthyearhist", 460, 150, {
 					xFormat: d3.format('d'),
 					xLabel: 'Year',
 					yLabel: 'People'

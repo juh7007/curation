@@ -1,12 +1,30 @@
 div.chartcontainer {
 	line-height: 0px;
 }
+
 /* Legend Styles */
 
 .legend {
 	padding: 5px;
-	font: 10px arial;
+	font: 8px arial;
 }
+
+/* evidenceVisualization Person Report Styles */
+
+.evidenceVisualization {
+  text-align: center;
+  background-color: #fff;
+  font-size: 8px;
+}
+
+.evidenceVisualization .axislabel {
+  font-size: 6px;
+}
+
+.evidenceVisualization .axis text {
+  font-size: 6px;
+}
+
 /* general bar styles */
 
 .area {
@@ -74,7 +92,8 @@ table.boxplotValues tr td
 .axis path,
 .axis line {
 	fill: none;
-	stroke: black;
+	stroke: rgba(200, 200, 200, 64);
+	stroke-width: .5px
 }
 .axis text {
 	font-family: arial;
@@ -83,6 +102,7 @@ table.boxplotValues tr td
 .axislabel {
 	font-family: arial;
 	font-weight: bold;
+	font-size: 8px;
 }
 table.data td:first-child {
 	text-align: right;

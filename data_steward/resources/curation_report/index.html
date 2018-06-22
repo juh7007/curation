@@ -10,7 +10,7 @@
 	<link href="css/jquery.datatables.tabletools.css" rel="stylesheet" />
 	<link href="css/jquery.datatables.colvis.css" rel="stylesheet" />
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/achilles.css" rel="stylesheet">
 	<link href="css/chart.css" rel="stylesheet">
 
@@ -18,7 +18,6 @@
 		var report = 'dashboard';
 		var page_vm = {};
 		var datasourcepath = 'data/datasources.json'
-
 		function updateReport(value) {
 			report = value;
 			updateRoute();
@@ -93,7 +92,7 @@
 		<div class="reportTitle">Achilles Heel Report</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Data Quality Messages
 					</div>
@@ -119,7 +118,7 @@
 
 		<div class="row">
 			<div class="col-sm-8">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Age at First Observation
 					</div>
@@ -134,7 +133,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Age by Gender
 					</div>
@@ -152,7 +151,7 @@
 
 		<div class="row">
 			<div class="col-sm-8">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Observation Length
 					</div>
@@ -167,7 +166,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Duration By Gender
 					</div>
@@ -185,7 +184,7 @@
 
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Cumulative Observation
 					</div>
@@ -200,7 +199,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Duration By Age Decile
 					</div>
@@ -218,7 +217,7 @@
 
 		<div class="row">
 			<div class="col-sm-8">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Persons With Continuous Observation By Year
 					</div>
@@ -233,7 +232,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Observation Periods per Person
 					</div>
@@ -252,7 +251,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Persons With Continuous Observation By Month
 					</div>
@@ -271,59 +270,68 @@
 
 	<div id="reportPerson" class="report">
 		<div class="reportTitle">Person</div>
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Person Summary
-					</div>
-					<div class="panel-body">
-						<div class="col-sm-12 personSummary">
-							<div data-bind="template: {if: personData, name: 'attributeValueTable', data: function() { return personData().SUMMARY}}"></div>
-						</div>
+		<div class="col-xs-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Person Summary
+				</div>
+				<div class="panel-body">
+					<div class="col-sm-12 personSummary">
+						<div data-bind="template: {if: personData, name: 'attributeValueTable', data: function() { return personData().SUMMARY}}"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Year of Birth
-					</div>
-					<div class="panel-body">
-						<div id="birthyearhist" class="chartcontainer"></div>
-					</div>
+		</div>	
+		<div class="col-xs-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Year of Birth
+				</div>
+				<div class="panel-body">
+					<div id="birthyearhist" class="evidenceVisualization"></div>
+				</div>
+				<div class="panel-footer">
+					The number of people in this cohort shown with respect to their year of birth.
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Population by Gender
-					</div>
-					<div class="panel-body">
-						<div id="genderPie" style="text-align:center"></div>
-					</div>
+		
+		<div class="col-xs-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Gender
+				</div>
+				<div class="panel-body">
+					<div class="evidenceVisualization" id="genderPie"></div>
+				</div>
+				<div class="panel-footer">
+					The number of people in this cohort stratified by gender.
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Population by Race
-					</div>
-					<div class="panel-body">
-						<div id="raceTypePie" style="text-align: center; width: auto"></div>
-					</div>
+		</div>
+		<div class="col-xs-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Race
+				</div>
+				<div class="panel-body">
+					<div class="evidenceVisualization" id="raceTypePie"></div>
+				</div>
+				<div class="panel-footer">
+					The number of people in this cohort stratified by race.
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Population by Ethnicity
-					</div>
-					<div class="panel-body">
-						<div id="ethnicityTypePie" style="text-align: center; width: auto"></div>
-					</div>
+		</div>
+		<div class="col-xs-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Ethnicity
+				</div>
+				<div class="panel-body">
+					<div class="evidenceVisualization" id="ethnicityTypePie"></div>
+				</div>
+				<div class="panel-footer">
+					The number of people in this cohort stratified by ethnicity.
 				</div>
 			</div>
 		</div>
@@ -333,7 +341,7 @@
 		<div class="reportTitle">Drug Era Report</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Drug Prevalence
 					</div>
@@ -378,7 +386,7 @@
 			<div id="drugeraDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelDrugEraPrevalence" class="panel panel-default">
+					<div id="panelDrugEraPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Drug Prevalence
 						</div>
@@ -390,7 +398,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelDrugEraPrevalenceByMonth" class="panel panel-default">
+					<div id="panelDrugEraPrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Drug Exposure Prevalence by Month
 						</div>
@@ -402,7 +410,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelDrugEraAgeAtFirstExposure" class="panel panel-default">
+					<div id="panelDrugEraAgeAtFirstExposure" class="panel panel-primary">
 						<div class="panel-heading">
 							Age At First Exposure
 						</div>
@@ -412,7 +420,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelDrugEraLengthOfEra" class="panel panel-default">
+					<div id="panelDrugEraLengthOfEra" class="panel panel-primary">
 						<div class="panel-heading">
 							Length of Era Distribution
 						</div>
@@ -429,7 +437,7 @@
 		<div class="reportTitle">Drug Exposure Report</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Drug Prevalence
 					</div>
@@ -476,7 +484,7 @@
 			<div id="drugDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelDrugPrevalence" class="panel panel-default">
+					<div id="panelDrugPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Drug Prevalence
 						</div>
@@ -488,7 +496,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelDrugExposurePrevalenceByMonth" class="panel panel-default">
+					<div id="panelDrugExposurePrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Drug Exposure Prevalence by Month
 						</div>
@@ -500,7 +508,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-3">
-					<div id="panelAgeAtFirstDiagnosis" class="panel panel-default">
+					<div id="panelAgeAtFirstDiagnosis" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Exposure
 						</div>
@@ -510,7 +518,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3">
-					<div id="panelDaysSupplyDistribution" class="panel panel-default">
+					<div id="panelDaysSupplyDistribution" class="panel panel-primary">
 						<div class="panel-heading">
 							Days Supply
 						</div>
@@ -520,7 +528,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3">
-					<div id="panelQuantityDistribution" class="panel panel-default">
+					<div id="panelQuantityDistribution" class="panel panel-primary">
 						<div class="panel-heading">
 							Quantity
 						</div>
@@ -530,7 +538,7 @@
 					</div>
 				</div>
 				<div class="col-sm-3">
-					<div id="panelRefillsDistribution" class="panel panel-default">
+					<div id="panelRefillsDistribution" class="panel panel-primary">
 						<div class="panel-heading">
 							Refills
 						</div>
@@ -542,7 +550,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelDrugsByType" class="panel panel-default">
+					<div id="panelDrugsByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Drugs by Type
 						</div>
@@ -559,7 +567,7 @@
 		<div class="reportTitle">Condition Eras</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default panel-table">
+				<div class="panel panel-primary panel-table">
 					<div class="panel-heading">
 						Condition Prevalence
 					</div>
@@ -605,7 +613,7 @@
 			<div id="conditionerasDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelConditionEraPrevalence" class="panel panel-default">
+					<div id="panelConditionEraPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Condition Prevalence
 						</div>
@@ -617,7 +625,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelConditionEraPrevalenceByMonth" class="panel panel-default">
+					<div id="panelConditionEraPrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Condition Prevalence by Month
 						</div>
@@ -629,7 +637,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstDiagnosis" class="panel panel-default">
+					<div id="panelAgeAtFirstDiagnosis" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Diagnosis
 						</div>
@@ -639,7 +647,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelConditionEraLengthOfEra" class="panel panel-default">
+					<div id="panelConditionEraLengthOfEra" class="panel panel-primary">
 						<div class="panel-heading">
 							Length of Condition Era
 						</div>
@@ -656,7 +664,7 @@
 		<div class="reportTitle">Conditions</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default panel-table">
+				<div class="panel panel-primary panel-table">
 					<div class="panel-heading">
 						Condition Prevalence
 					</div>
@@ -702,7 +710,7 @@
 			<div id="conditionDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelConditionPrevalence" class="panel panel-default">
+					<div id="panelConditionPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Condition Prevalence
 						</div>
@@ -714,7 +722,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelConditionOccurrencePrevalenceByMonth" class="panel panel-default">
+					<div id="panelConditionOccurrencePrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Condition Prevalence by Month
 						</div>
@@ -726,7 +734,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelConditionsByType" class="panel panel-default">
+					<div id="panelConditionsByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Conditions by Type
 						</div>
@@ -736,7 +744,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstDiagnosis" class="panel panel-default">
+					<div id="panelAgeAtFirstDiagnosis" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Diagnosis
 						</div>
@@ -753,7 +761,7 @@
 		<div class="reportTitle">Procedures</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Procedure Prevalence
 					</div>
@@ -798,7 +806,7 @@
 			<div id="procedureDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelProcedurePrevalence" class="panel panel-default">
+					<div id="panelProcedurePrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Procedure Prevalence
 						</div>
@@ -810,7 +818,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelProcedureOccurrencePrevalenceByMonth" class="panel panel-default">
+					<div id="panelProcedureOccurrencePrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Procedure Prevalence by Month
 						</div>
@@ -822,7 +830,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelProceduresByType" class="panel panel-default">
+					<div id="panelProceduresByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Procedures by Type
 						</div>
@@ -832,7 +840,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Occurrence
 						</div>
@@ -849,7 +857,7 @@
 		<div class="reportTitle">Observations</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Observation Prevalence
 					</div>
@@ -894,7 +902,7 @@
 			<div id="observationDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelObservationPrevalence" class="panel panel-default">
+					<div id="panelObservationPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Observation Prevalence
 						</div>
@@ -906,7 +914,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelObservationPrevalenceByMonth" class="panel panel-default">
+					<div id="panelObservationPrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Observation Prevalence by Month
 						</div>
@@ -918,7 +926,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelObservationsByType" class="panel panel-default">
+					<div id="panelObservationsByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Observations by Type
 						</div>
@@ -928,7 +936,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Occurrence
 						</div>
@@ -941,7 +949,7 @@
 <!-- ko if: (datasource() && (datasource().cdmVersion || 4)) == 4 -->			
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelObservationsByType" class="panel panel-default">
+					<div id="panelObservationsByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Observation Records by Unit
 						</div>
@@ -951,7 +959,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Observation Value Distribution
 						</div>
@@ -963,7 +971,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-4">
-					<div id="panelObservationsByType" class="panel panel-default">
+					<div id="panelObservationsByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Lower limit Distribution
 						</div>
@@ -973,7 +981,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Upper Limit Distribution
 						</div>
@@ -983,7 +991,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Values Relative to Normal Range
 						</div>
@@ -1001,7 +1009,7 @@
 		<div class="reportTitle">Dashboard</div>
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						CDM Summary
 					</div>
@@ -1013,7 +1021,7 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Population by Gender
 					</div>
@@ -1023,7 +1031,7 @@
 				</div>
 			</div>
 			<div class="col-sm-5">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Age at First Observation
 					</div>
@@ -1040,7 +1048,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Cumulative Observation
 					</div>
@@ -1056,7 +1064,7 @@
 			</div>
 			<!-- /.col-lg-6 -->
 			<div class="col-sm-6">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Persons With Continuous Observation By Month
 					</div>
@@ -1078,7 +1086,7 @@
 		<div class="reportTitle">Data Density</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Total Rows
 					</div>
@@ -1090,7 +1098,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Records Per Person
 					</div>
@@ -1102,7 +1110,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Concepts Per Person
 					</div>
@@ -1118,7 +1126,7 @@
 		<div class="reportTitle">Visits</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Visit Prevalence
 					</div>
@@ -1160,7 +1168,7 @@
 			<div id="visitDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelVisitPrevalence" class="panel panel-default">
+					<div id="panelVisitPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Visit Prevalence
 						</div>
@@ -1172,7 +1180,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelVisitOccurrencePrevalenceByMonth" class="panel panel-default">
+					<div id="panelVisitOccurrencePrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Visit Prevalence by Month
 						</div>
@@ -1184,7 +1192,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelVisitDurationByType" class="panel panel-default">
+					<div id="panelVisitDurationByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Visit Duration by Type
 						</div>
@@ -1194,7 +1202,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div id="panelAgeAtFirstOccurrence" class="panel panel-default">
+					<div id="panelAgeAtFirstOccurrence" class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Occurrence
 						</div>
@@ -1211,7 +1219,7 @@
 		<div class="reportTitle">Death</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Death Prevalence by Age, Gender, Year
 					</div>
@@ -1223,7 +1231,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Death Prevalence by Month
 					</div>
@@ -1235,7 +1243,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<div id="panelVisitDurationByType" class="panel panel-default">
+				<div id="panelVisitDurationByType" class="panel panel-primary">
 					<div class="panel-heading">
 						Death by Type
 					</div>
@@ -1245,7 +1253,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-				<div id="panelAgeAtDeath" class="panel panel-default">
+				<div id="panelAgeAtDeath" class="panel panel-primary">
 					<div class="panel-heading">
 						Age at Death
 					</div>
@@ -1261,7 +1269,7 @@
 		<div class="reportTitle">Measurements</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						Measurement Prevalence
 					</div>
@@ -1306,7 +1314,7 @@
 			<div id="measurementDrilldownTitle" class="reportTitle"></div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelMeasurementPrevalence" class="panel panel-default">
+					<div id="panelMeasurementPrevalence" class="panel panel-primary">
 						<div class="panel-heading">
 							Measurement Prevalence
 						</div>
@@ -1318,7 +1326,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<div id="panelMeasurementPrevalenceByMonth" class="panel panel-default">
+					<div id="panelMeasurementPrevalenceByMonth" class="panel panel-primary">
 						<div class="panel-heading">
 							Measurement Prevalence by Month
 						</div>
@@ -1330,7 +1338,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div id="panelMeasurementByType" class="panel panel-default">
+					<div id="panelMeasurementByType" class="panel panel-primary">
 						<div class="panel-heading">
 							Measurement by Type
 						</div>
@@ -1340,7 +1348,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Age at First Occurrence
 						</div>
@@ -1352,7 +1360,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Measurement Records by Unit
 						</div>
@@ -1362,7 +1370,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Measurement Value Distribution
 						</div>
@@ -1374,7 +1382,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-4">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Lower limit Distribution
 						</div>
@@ -1384,7 +1392,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Upper Limit Distribution
 						</div>
@@ -1394,7 +1402,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Values Relative to Normal Range
 						</div>
